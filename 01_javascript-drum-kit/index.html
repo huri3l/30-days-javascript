@@ -62,7 +62,7 @@
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
 
       if(!audio)
-        return // stop the function
+        return // Stop the function
 
       audio.currentTime = 0 // Rewind to the start, and that allows us to play it multiple times
       audio.play()

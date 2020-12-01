@@ -40,14 +40,13 @@
   }
 </style>
 
-<button></button>
 <script>
   const divs = document.querySelectorAll('div');
 
   function logText(e) {
     console.log(this.classList.value);
     // <!-- * It will stop the bubble up, logging only the clicked element instead of all the nest --> 
-    // e.stopPropagation();
+    e.stopPropagation();
   }
 
   divs.forEach(div => div.addEventListener('click', logText, {
@@ -55,13 +54,10 @@
     // <!-- ? Bubble up: LIFO. Capture mode: FIFO -->
     // <!-- ? By default, is false. -->
     // <!-- * If it's true and combined with stopPropagation, it'll log the first one in capture -->
-    capture: false,
+    // capture: true,
     // <!-- * This one execute the function passed in the second parameter of addEventListener only once --> 
     // <!-- ? It'll keep listening to the event all the times, but it won't run the function again --> 
-
-    // <!-- * Pode ser bem útil em casos como: existe um botão e o usuário clica várias vezes, porém a função só será chamada na primeira --> 
-
-    once: true
+    // once: true
   }));
 
 </script>
